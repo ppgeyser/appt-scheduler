@@ -21,6 +21,7 @@ import "react-datepicker/dist/react-datepicker.css";
 //Components
 import AppJumbotron from "./components/AppJumbotron";
 import useInputForm from "./components/useInputForm";
+import ApptCard from "./components/ApptCard";
 
 function App() {
 
@@ -53,7 +54,7 @@ function App() {
               <Form onSubmit={handleSubmit}>
 
                 <FormGroup>
-                  <Label for="descriptionInput">Appointment Description</Label>
+                  <Label for="descriptionInput">What is the appointment?</Label>
                   <Input 
                     type="text" 
                     name="description" 
@@ -64,7 +65,7 @@ function App() {
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="LocationInput">Location</Label>
+                  <Label for="LocationInput">WHere is your appointment?</Label>
                   <Input 
                     type="text" 
                     name="location" 
@@ -75,7 +76,7 @@ function App() {
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="datetimeInput">Date and Time</Label>
+                  <Label for="datetimeInput">When is your appointment?</Label>
                   <br />
                   <DatePicker
                     selected={startDate}
@@ -96,6 +97,15 @@ function App() {
         </Col>
 
         <Col sm="9">
+          <Card>
+
+          <CardHeader>Your Appointments</CardHeader>
+
+          <CardBody>
+            
+          </CardBody>
+
+          </Card>
         </Col>
 
       </Row>
