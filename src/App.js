@@ -4,38 +4,23 @@ import store from "store";
 import {
   Container,
   Row,
-  Col,
-  Jumbotron,
-  Card,
-  CardHeader,
-  CardBody,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
+  Col
 } from "reactstrap";
+
+//Components
+import AppJumbotron from "./components/AppJumbotron";
+import InputForm from "./components/InputForm";
 
 function App() {
   return (
     <Container fluid>
 
-      <Jumbotron>
-        <h1 className="display-3">Appointment Scheduler</h1>
-          <p className="lead">Create, read, update, and delete your appointments!</p>
-      </Jumbotron>
+      <AppJumbotron />
 
       <Row>
 
         <Col sm="3">
-          <Card>
-            <CardHeader>Create New Appointment</CardHeader>
-            <CardBody>
-              <Form>
-                
-              </Form>
-            </CardBody>
-          </Card>
+          <InputForm />
         </Col>
 
         <Col sm="9">
