@@ -15,6 +15,7 @@ import {
   Input
 } from "reactstrap";
 import DatePicker from "react-datepicker";
+import uuid from "uuid/v4";
 import "react-datepicker/dist/react-datepicker.css";
 
 //Components
@@ -24,10 +25,13 @@ import useInputForm from "./components/useInputForm";
 function App() {
 
   const formSubmit = () => {
-    alert(`Event Created!
-    Description: ${inputs.description}
-    Location: ${inputs.location}
-    Date and Time: ${startDate}`)
+    let key = uuid();
+    store.set(key, {
+      description: `${inputs.description}`,
+      location: `${inputs.location}`,
+      dateTime: `${startDate}`
+    })
+    alert(`Event Created!`)
   }
 
   const [startDate, setStartDate] = useState(new Date());
