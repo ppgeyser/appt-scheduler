@@ -1,6 +1,6 @@
 # appt-scheduler
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It also utilizes localStorage at http://localhost:3000. You may need to clear any preexisting data in localStorage at this location to prevent any bugs from occurring. [Here are some instructions for how to do this.](https://www.leadshook.com/help/how-to-clear-local-storage-in-google-chrome-browser/) 
 
 ## Available Scripts
 
