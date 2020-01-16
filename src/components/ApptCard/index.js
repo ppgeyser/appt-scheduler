@@ -1,15 +1,16 @@
 import React from 'react';
-import { Card } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 
 const ApptCard = (props) => {
   return (
-    <Card
-      key={props.key}
-    >
-      <h6>What: {props.description}</h6>
-      <hr />
-      <p>Where: {props.location}</p>
-      <p>When: {props.startDate}</p>
+    <Card>
+      <CardBody>
+        <CardTitle>What: {props.description}</CardTitle>
+        <CardSubtitle>Where: {props.location}</CardSubtitle>
+        <CardText>When: {props.startDate}</CardText>
+        <Button className="float-right" color="primary" onClick={props.editBtn}>Edit</Button>
+        <Button className="float-right mr-1" color="danger" onClick={props.deleteBtn}>Delete</Button>
+      </CardBody>
     </Card>
   )
 }
