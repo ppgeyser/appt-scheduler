@@ -17,6 +17,7 @@ import {
 import DatePicker from "react-datepicker";
 import uuid from "uuid/v4";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 //Components
 import AppJumbotron from "./../AppJumbotron";
@@ -52,6 +53,12 @@ class AppPage extends Component {
         location: this.state.location,
         startDate: this.state.startDate
       })
+      this.loadAppts();
+    };
+
+    deleteAppt = key => {
+      store.remove(key);
+      this.loadAppts();
     }
 
     componentDidMount() {
@@ -61,9 +68,9 @@ class AppPage extends Component {
     loadAppts() {
       let data = [];
       store.each(function(key, value) {
-        console.log(key, value);
+        data.push(key);
       })
-      // this.setState({apptList: data});
+      this.setState({apptList: data});
       };
 
     render() {
@@ -119,6 +126,7 @@ class AppPage extends Component {
                     </FormGroup>
                     
                     <Button
+                    color="success"
                     onClick={this.handleFormSubmit}
                     >Submit</Button>
                     
@@ -141,7 +149,9 @@ class AppPage extends Component {
                           key={appt.key}
                           description={appt.description}
                           location={appt.location}
-                          startDate={appt.startDate}
+                          startDate={
+                            moment(appt.startDate).format("dddd, MMMM Do YYYY, h:mm a")}
+                          deleteBtn={() => this.deleteAppt(appt.key)}
                        />
                      ))}
                    </div>
