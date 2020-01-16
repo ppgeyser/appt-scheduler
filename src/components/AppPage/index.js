@@ -53,12 +53,27 @@ class AppPage extends Component {
         location: this.state.location,
         startDate: this.state.startDate
       })
+      this.setState({
+        startDate: new Date(),
+        description: "",
+        location: "",
+      })
       this.loadAppts();
     };
 
     deleteAppt = key => {
       store.remove(key);
       this.loadAppts();
+    };
+
+    editAppt = key => {
+      let appt = store.get(key);
+      this.setState({
+        startDate: Date.parse(appt.startDate),
+        description: appt.description,
+        location: appt.location
+      });
+      this.deleteAppt(key);
     }
 
     componentDidMount() {
@@ -152,6 +167,7 @@ class AppPage extends Component {
                           startDate={
                             moment(appt.startDate).format("dddd, MMMM Do YYYY, h:mm a")}
                           deleteBtn={() => this.deleteAppt(appt.key)}
+                          editBtn={() => this.editAppt(appt.key)}
                        />
                      ))}
                    </div>
